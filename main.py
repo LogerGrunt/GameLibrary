@@ -28,7 +28,7 @@ genres = [
 ]
 # Creating the variable to store the chosen genre
 chosen_genre = StringVar()
-chosen_genre.set(genres[0])
+chosen_genre.set(genres[0]) 
 
 
 
@@ -86,8 +86,9 @@ def home():
 # Putting the top menu frame on the screen
 top_menu.grid(row=0,column=0,columnspan=8,sticky=NS)
 
-
+# Making sure that our database exists
 create_base
+# Pulling up the home screen
 home()
 
 root.mainloop()
