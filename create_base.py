@@ -9,9 +9,15 @@ conn = sql3.connect("games.db")
 c = conn.cursor()
 
 # Now, we are going to create our table
-
+# game_name will contain the name that the user gives to the game
+# game_des will contain the game's description. 
+# For now, I will make the user write it out. If I will have enough time and motivation I will add a thing that will import the description from google
 c.execute("""CREATE TABLE if NOT EXISTS games (
-    game_img text
+    game_name text,
+    game_des text,
+    game_filepath text,
+    game_genre text,
+    game_id text
     )""")
 
 

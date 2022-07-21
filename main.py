@@ -8,6 +8,7 @@ import sqlite3
 import os
 from click import edit
 import create_base
+import add_game
 
 
 # Starter code to run the app
@@ -39,21 +40,23 @@ chosen_genre.set(genres[0])
 
 
 
-
 # Creating the top menu frame
-top_frame = LabelFrame(root,height=200,width=200)
+top_menu = LabelFrame(root,height=200,width=200)
 
 # Making the home function for the button
 def home():
     # Creating the top panel with buttons:
 
     # Creating a home button in the top menu of the screen
-    home_btn = Button(top_frame,text="HOME",command=home)
+    home_btn = Button(top_menu,text="HOME",command=home)
 
     # Creating a drop-down menu for the genres of the games
-    genres_list = OptionMenu(top_frame,chosen_genre,*genres)
-    # genres_list.config(height=2)
+    genres_list = OptionMenu(top_menu,chosen_genre,*genres)
     
+    # Since I'm not going to be adding each game manualy into the code, I will try to make a function that will collect the user's input and will turn it into the game for the library.
+    # I'm going to create a separate window for the user's input.
+    # This will be the button that will redirect the user to the window to add a game to their library.
+    add_game_btn = Button(top_menu,text="ADD GAME",command=add_game.create_game)
 
     
     # Putting the top panel things on the screen:
@@ -70,6 +73,9 @@ def home():
     chosen_genre.set(genres[0])
     genres_list.grid(row=0,column=1)
 
+    # Putting the "ADD GAME" button on the screen
+    add_game_btn.grid(row=0,column=2,ipady=1)
+
 
 
 
@@ -78,10 +84,10 @@ def home():
 
 
 # Putting the top menu frame on the screen
-top_frame.grid(row=0,column=0,columnspan=8,sticky=NS)
+top_menu.grid(row=0,column=0,columnspan=8,sticky=NS)
 
 
-
+create_base
 home()
 
 root.mainloop()
